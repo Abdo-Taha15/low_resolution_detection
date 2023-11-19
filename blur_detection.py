@@ -6,7 +6,7 @@ import time
 ocr = PaddleOCR(use_angle_cls=True, lang="ch")
 
 
-def detect_blur_fft(image, size=60, thresh=10):
+def detect_blur_fft(image, size=60, thresh: float = 20):
     # grab the dimensions of the image and use the dimensions to
     # derive the center (x, y)-coordinates
     (h, w) = image.shape
@@ -37,7 +37,7 @@ def detect_blur_fft(image, size=60, thresh=10):
     return (mean, mean < thresh)
 
 
-def text_score(img, thresh):
+def text_score(img, thresh: float = 0.8):
     start = time.time()
 
     result = ocr.ocr(img, cls=False)

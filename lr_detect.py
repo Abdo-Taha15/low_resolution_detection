@@ -6,7 +6,9 @@ import imutils
 from blur_detection import detect_blur_fft, text_score
 
 
-def is_recognizable(image_path, blur_thresh, text_score_thresh):
+def is_recognizable(
+    image_path, blur_thresh: float = 20, text_score_thresh: float = 0.8
+):
     # load the input image from disk, resize it, and convert it to
     # grayscale
     orig = cv2.imread(image_path)
